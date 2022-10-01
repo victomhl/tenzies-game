@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types"
+import { func } from "prop-types";
 
 function Die(props) {
 
@@ -7,7 +8,7 @@ function Die(props) {
         backgroundColor: props.isHeld ? "#59E391" : "#FFFFFF"
     }
 
-    function checkDisplay(itemPos, value) {
+    function checkIfDisplaySymbol(itemPos, value) {
         // Grid Layout
         //    1 2 3
         //    4 5 6
@@ -29,28 +30,40 @@ function Die(props) {
 
         } else if (itemPos === 5) {
 
-            return value % 2 === 0 ? "no-display" : "" 
+            return value % 2 === 0 ? "no-display" : ""
 
+        } else {
+            return "no-display"
         }
 
     }
 
+    function displayDieSymbols() {
+        const symbolsArray = []
+
+        for (let i = 1; i < 10; i++) {
+            symbolsArray.push(
+                <div key={i} className={`grid--item`}>
+                    <div
+                        className={`die--face-symbol ${checkIfDisplaySymbol(i, props.value)}`}
+                    >
+                    </div>
+                </div>
+            )
+        }
+
+        return symbolsArray
+    }
+
     return (
         
-        <div className="cell">
+        <div className="grid--cell">
             <div 
                 style={styles} 
                 onClick={() => props.toggleDie(props.id)}
-                className="die--face">
-                <div className={`grid-item ${checkDisplay(1, props.value)}`}></div>
-                <div className="grid-item no-display"></div>
-                <div className={`grid-item ${checkDisplay(3, props.value)}`}></div>
-                <div className={`grid-item ${checkDisplay(4, props.value)}`}></div>
-                <div className={`grid-item ${checkDisplay(5, props.value)}`}></div>
-                <div className={`grid-item ${checkDisplay(6, props.value)}`}></div>
-                <div className={`grid-item ${checkDisplay(7, props.value)}`}></div>
-                <div className="grid-item no-display"></div>
-                <div className={`grid-item ${checkDisplay(9, props.value)}`}></div>
+                className="die--face p-1"
+            >
+                {displayDieSymbols()}
             </div>
         </div>
     )

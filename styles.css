@@ -68,27 +68,43 @@
  ********        Die Component          ********
  ************************************************/
 
+.grid--cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .die--face {
-    box-sizing: content-box;
     border-radius: 5%;
-    width: 2rem;
-    height: 2rem;
-    background-color: white;
-    margin: .5rem auto;
-    padding: .3rem;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    max-width: 2.5rem;
+    width: 10vw;
+    min-width: 1rem;
+    max-height: 2.5rem;
+    height: 10vw;
+    min-height: 1rem;
+    border: 1px solid #71797E;
+    background-color: white;  
     cursor: pointer;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, .25);
 }
 
-.grid-item {
-    background-color: black;
-    width: .3rem;
-    height: .3rem;
-    border-radius: .5rem;
-    margin: auto;
+.grid--item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
+
+.die--face-symbol {
+    background-color: black;
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+}
+
 .no-display {
     background-color: transparent;
 }
