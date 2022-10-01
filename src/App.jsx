@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import Confetti from "react-confetti"
 
-import Die from "../components/Die"
-import useTenzies from "../components/useTenzies"
+import Die from "./components/Die"
+import useTenzies from "./hooks/useTenzies"
 
 function App() {
 
