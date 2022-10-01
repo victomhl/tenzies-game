@@ -36,21 +36,22 @@ function Die(props) {
     }
 
     return (
-        <div 
-            style={styles} 
-            onClick={() => props.toggleDie(props.id)}
-            className="die-face">
-
-            {/* <h3 className="die--value">{props.value}</h3> */}
-            <div className={`grid-item ${checkDisplay(1, props.value)}`}></div>
-            <div className="grid-item no-display"></div>
-            <div className={`grid-item ${checkDisplay(3, props.value)}`}></div>
-            <div className={`grid-item ${checkDisplay(4, props.value)}`}></div>
-            <div className={`grid-item ${checkDisplay(5, props.value)}`}></div>
-            <div className={`grid-item ${checkDisplay(6, props.value)}`}></div>
-            <div className={`grid-item ${checkDisplay(7, props.value)}`}></div>
-            <div className="grid-item no-display"></div>
-            <div className={`grid-item ${checkDisplay(9, props.value)}`}></div>
+        
+        <div className="cell">
+            <div 
+                style={styles} 
+                onClick={() => props.toggleDie(props.id)}
+                className="die--face">
+                <div className={`grid-item ${checkDisplay(1, props.value)}`}></div>
+                <div className="grid-item no-display"></div>
+                <div className={`grid-item ${checkDisplay(3, props.value)}`}></div>
+                <div className={`grid-item ${checkDisplay(4, props.value)}`}></div>
+                <div className={`grid-item ${checkDisplay(5, props.value)}`}></div>
+                <div className={`grid-item ${checkDisplay(6, props.value)}`}></div>
+                <div className={`grid-item ${checkDisplay(7, props.value)}`}></div>
+                <div className="grid-item no-display"></div>
+                <div className={`grid-item ${checkDisplay(9, props.value)}`}></div>
+            </div>
         </div>
     )
 }
